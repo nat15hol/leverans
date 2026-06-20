@@ -1,8 +1,24 @@
 import { useState } from "react";
 
 export default function App() {
-  const [todos, setTodos] = useState([]);
+const [todos, setTodos] = useState([]);
+const [stats, setStats] = useState({
+  total: 0,
+  completed: 0
+});
+  const [done, setDone] = useState([]);     // historik (Äg)
   const [text, setText] = useState("");
+const handleAeg = (todo) => {
+
+  setTodos(prev => prev.filter(t => t.id !== todo.id));
+
+  setDone(prev => [...prev, todo]);
+  setStats(prev => ({
+  ...prev,
+  completed: prev.completed + (todo.completed ? -1 : 1)
+}));
+
+};
 
   function addTodo() {
     if (!text.trim()) return;
@@ -14,12 +30,13 @@ export default function App() {
         completed: false
       }
     ]);// uppdaterar state-variabeln todos
+    setStats(prev => ({
+  ...prev,
+  total: prev.total + 1
+}));
     setText("");                                           // uppdaterar state-variabeln text
   }
 
-  function deleteTodo(id) {
-    setTodos(prev => prev.filter(todo => todo.id !== id));
-  }
   function toggleTodo(id) {
     setTodos(prev =>
       prev.map(todo =>
@@ -40,6 +57,7 @@ export default function App() {
   const completedTodos = todos.filter(todo => todo.completed && !todo.doneFinal);
   const doneTodos = todos.filter(todo => todo.completed);
 
+
   function toggleTodo(id) {
     setTodos(prev =>
       prev.map(todo =>
@@ -48,110 +66,128 @@ export default function App() {
           : todo
       )
     );
+  setStats(prev => ({
+    ...prev,
+    completed: prev.completed + 1
+  }));
   }
 
-  return (
+const total = todos.length;
+const completed = todos.filter(t => t.completed).length;
+const percent = stats.total === 0 ? 0 : (stats.completed / stats.total) * 100;
+
+return (
+  <div style={{ display: "flex", height: "100vh" }}>
+
+    {/* VÄNSTER */}
     <div style={{
-      height: "100vh",
-      display: "flex",
-      flexDirection: "column"
+      width: "100px",
+      padding: "20px",
+      borderRight: "1px solid #ccc"
     }}>
 
-      <h1>Leverans</h1>
+
+      <div style={{
+        width: "100%",
+        height: "300px",
+        backgroundColor: "#e74c3c",
+        borderRadius: "10px",
+        overflow: "hidden",
+        marginTop: "20px",
+        display: "flex",
+        alignItems: "flex-end"
+      }}>
+        <div
+          style={{
+            width: "100%",
+            height: `${percent}%`,
+            backgroundColor: "#2ecc71"
+          }}
+        />
+      </div>
+
+      <p>{completed} / {total}</p>
+    </div>
+
+    {/* HÖGER */}
+    <div style={{
+      flex: 1,
+      display: "flex",
+      flexDirection: "column",
+      height: "100vh"
+    }}>
+
+      <h1>Leveransometer</h1>
       <p>Ett göromål är last tills det blir leverans – äg det.</p>
+
+      {/* INPUT */}
       <div style={{ padding: "20px" }}>
         <input
           value={text}
           onChange={(e) => setText(e.target.value)}
           onKeyDown={(e) => {
-            if (e.key === "Enter") {
-              addTodo();
-            }
+            if (e.key === "Enter") addTodo();
           }}
           placeholder="Lägg till göromål..."
         />
 
-        <button onClick={addTodo}>Lägg till last</button>
-        <button onClick={clearCompleted}>
-          Äg leverans
-        </button>
+        <div>
+          <button onClick={addTodo}>Lägg till last</button>
+          <button onClick={clearCompleted}>Äg leverans</button>
+        </div>
       </div>
 
-      <div style={{
-        flex: 1,
-        overflowY: "auto",
-        padding: "20px",
-        borderBottom: "1px solid #ccc"
-      }}>
-        <h2>⚠️Last</h2>
-
-
-
-        <ul>
-
-          {
-            todos.filter(todo => !todo.completed).map((todo) => (
-              <li
-                key={todo.id}
-                style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center"
-                }}
-              >
-                <div>
-                  <input
-                    type="checkbox"
-                    checked={todo.completed}
-                    onChange={() => toggleTodo(todo.id)}
-                  />
-
-                  <span
-                    style={{
-                      textDecoration: todo.completed ? "line-through" : "none",
-                      marginLeft: "8px"
-                    }}
-                  >
-                    {todo.text}
-                  </span>
-                </div>
-                <button onClick={() => deleteTodo(todo.id)}>
-                  Förstör
-                </button>
-              </li>
-            ))}
-
-        </ul>
-      </div>
-
-      <div style={{
-        flex: 1,
-        overflowY: "auto",
-        padding: "20px"
-      }}>
+      {/* LEVERANS */}
+      <div style={{ flex: 1, padding: "20px", overflowY: "auto" }}>
         <h2>✔️Leverans</h2>
-
-        <ul>
-          {todos.filter(todo => todo.completed).map((todo) => (
-            <li
-              key={todo.id}
-              style={{
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center"
-              }}
-            >
-              <span style={{ textDecoration: "line-through" }}>
-                {todo.text}
-              </span>
-
-              <button onClick={() => deleteTodo(todo.id)}>
-                Äg
-              </button>
-            </li>
-          ))}
-        </ul>
+<ul style={{
+  listStyle: "none",
+  padding: 0,
+  margin: 0
+}}>
+  {todos.filter(t => t.completed).map(todo => (
+    <li
+  key={todo.id}
+  style={{
+    listStyle: "none",
+    display: "flex",
+    justifyContent: "space-between",
+    padding: "6px 0"
+  }}
+>
+      <span>{todo.text}</span>
+      <button onClick={() => handleAeg(todo)}>
+  Äg
+</button>
+    </li>
+  ))}
+</ul>
       </div>
+
+      {/* LAST */}
+      <div style={{ flex: 1, padding: "20px", overflowY: "auto" }}>
+        <h2>⚠️Last</h2>
+<ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
+  {todos.filter(t => !t.completed).map(todo => (
+    <li
+      key={todo.id}
+      style={{
+        listStyle: "none",
+        display: "flex",
+        justifyContent: "space-between",
+        padding: "6px 0"
+      }}
+    >
+      <span>{todo.text}</span>
+      <button onClick={() => toggleTodo(todo.id)}>
+        Leverera
+      </button>
+    </li>
+  ))}
+</ul>
+      </div>
+
     </div>
-  );
+  </div>
+);
 }
