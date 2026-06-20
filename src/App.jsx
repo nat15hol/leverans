@@ -58,7 +58,7 @@ export default function App() {
     }}>
 
       <h1>Leverans</h1>
-      <p>Göromål är laster tills de blivit leveranser - då kan du äga dem.</p>
+      <p>Ett göromål är last tills det blir leverans – äg det.</p>
       <div style={{ padding: "20px" }}>
         <input
           value={text}
