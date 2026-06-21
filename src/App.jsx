@@ -104,9 +104,9 @@ if (Math.abs(ratio - 0.5) < 0.05) {
   g = 220; // lite varmare gul, inte lime
 }
 
-const hue = ratio * 1000;
+//const hue = ratio * 1000;
 const bgColor = `rgb(${r}, ${g}, 0)`;
-const textColor = `hsl(${hue}, 30%, 30%)`;
+//const textColornpm = `hsl(${hue}, 30%, 30%)`;
 const allDone = todos.length > 0 && todos.every(t => t.completed);
 
 function clearCompleted() {
@@ -141,7 +141,7 @@ useEffect(() => {
 
 
 return (
-  <div style={{ height: "100vh", display: "flex", border: "none", outline: "none", flexDirection: "column", backgroundColor: "#4f9d97", color: textColor}}>
+  <div style={{ height: "100vh", display: "flex", border: "none", outline: "none", flexDirection: "column", backgroundColor: "#4f9d97"}}>
 {showFinishButton && (
   <button
     onClick={clearCompleted}
@@ -190,7 +190,7 @@ return (
       border: "none",
       textAlign: "center"
     }}>
-      <h1 style={{ color: textColor }}>Leveransometer</h1>
+      <h1>Leveransometer</h1>
       <p style={{ fontSize: "11px" }}>Sänk temperaturen genom att leverera det som känns tungt.</p>
     </div>
 
@@ -236,7 +236,7 @@ return (
 
         {/* LEVERANS */}
         <div style={{ flex: 1, overflowY: "auto", minHeight: 0 }}>
-          <h2 style={{ marginTop: "20px", color: textColor }}>
+          <h2 style={{ marginTop: "20px" }}>
   <span style={{
     color: "#2ecc71",
     marginRight: "6px"
@@ -265,7 +265,7 @@ return (
 
         {/* LAST */}
         <div style={{ flex: 1, overflowY: "auto", minHeight: 0 }}>
-      <h2 style={{color: textColor}}>    
+      <h2>    
   <span style={{ color: "#e74c3c", marginRight: "6px" }}>⚠</span>
   
   Last
