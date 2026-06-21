@@ -1,20 +1,17 @@
 import { useState, useEffect } from "react";
 import { Routes, Route, Link } from "react-router-dom"
 import About from "./About"
-import Footer from "./Footer"
+export default function App() {
+const [todos, setTodos] = useState([]);
+const [stats, setStats] = useState({
+  total: 0,
+  completed: 0
+});
+  const [done, setDone] = useState([]);     // historik (Äg)
+  const [message, setMessage] = useState("");
+  const [text, setText] = useState("");
+  const completed = todos.filter(t => t.completed).length;
 
-function MainApp() {
-  const [todos, setTodos] = useState([])
-  const [stats, setStats] = useState({
-    total: 0,
-    completed: 0
-  })
-
-
-const [done, setDone] = useState([]);     // historik (Äg)
-const [message, setMessage] = useState("");
-const [text, setText] = useState("");
-const completed = todos.filter(t => t.completed).length;
 const handleAeg = (todo) => {
   setTodos(prev => prev.filter(t => t.id !== todo.id));
   setDone(prev => [...prev, todo]);
@@ -26,7 +23,7 @@ setTimeout(() => {
   }, 1000);
 };
 
-function addTodo() {
+  function addTodo() {
     if (!text.trim()) return;
     setTodos(prev => [
       ...prev,
@@ -41,7 +38,8 @@ function addTodo() {
   total: prev.total + 1
 }));
     setText("");                                           // uppdaterar state-variabeln text
-}
+  }
+
 function toggleTodo(id) {
   setTodos(prev =>
     prev.map(todo =>
@@ -59,15 +57,23 @@ setTimeout(() => {
     setMessage("");
   }, 1000);
 }
-function deleteTodo(id) {
+
+
+  function deleteTodo(id) {
     setTodos(prev => prev.filter(todo => todo.id !== id));
-}
+  }
 
-const activeTodos = todos.filter(todo => !todo.completed);
-const completedTodos = todos.filter(todo => todo.completed && !todo.doneFinal);
-const doneTodos = todos.filter(todo => todo.completed);
 
-function clearCompleted() {
+
+
+  const activeTodos = todos.filter(todo => !todo.completed);
+  const completedTodos = todos.filter(todo => todo.completed && !todo.doneFinal);
+  const doneTodos = todos.filter(todo => todo.completed);
+
+
+
+
+  function clearCompleted() {
   const count = todos.filter(todo => todo.completed).length;
 
   setTodos(prev => prev.filter(todo => !todo.completed));
@@ -81,9 +87,14 @@ setTimeout(() => {
 }
 
 const total = todos.length;
+
 const percent = stats.total === 0 ? 0 : (stats.completed / stats.total) * 100;
-const green = total === 0 ? 0 : completed / total;
-const red = 1 - green;
+  const green = total === 0 ? 0 : completed / total;
+  const red = 1 - green;
+
+
+
+
 const ratio = total === 0 ? 0 : completed / total;
 
 let r, g;
@@ -103,10 +114,14 @@ if (Math.abs(ratio - 0.5) < 0.05) {
   r = 255;
   g = 220; // lite varmare gul, inte lime
 }
-
 const hue = ratio * 1000;
+
 const bgColor = `rgb(${r}, ${g}, 0)`;
+
+
+
 const textColor = `hsl(${hue}, 30%, 30%)`;
+
 const allDone = todos.length > 0 && todos.every(t => t.completed);
 
 function clearCompleted() {
@@ -124,7 +139,6 @@ function clearCompleted() {
     setMessage("");
   }, 4300);
 }
-
 const [showFinishButton, setShowFinishButton] = useState(false);
 
 useEffect(() => {
@@ -138,7 +152,6 @@ useEffect(() => {
     setShowFinishButton(false);
   }
 }, [allDone]);
-
 
 return (
   <div style={{ height: "100vh", display: "flex", border: "none", outline: "none", flexDirection: "column", backgroundColor: "#4f9d97", color: textColor}}>
@@ -183,6 +196,7 @@ return (
 
 
 
+
     {/* HEADER */}
     <div style={{
       padding: "10px 20px",
@@ -191,7 +205,7 @@ return (
       textAlign: "center"
     }}>
       <h1 style={{ color: textColor }}>Leveransometer</h1>
-      <p style={{ fontSize: "11px" }}>Sänk temperaturen genom att leverera det som känns tungt.</p>
+      <p style={{ fontSize: "10px" }}>Sänk temperaturen genom att leverera det som känns tungt.</p>
     </div>
 
 
@@ -324,21 +338,17 @@ return (
     </div>
 
     {/* FOOTER */}
+    <div style={{
+      padding: "10px 20px",
+      borderTop: "1px solid #eee",
+      fontSize: "12px",
+      opacity: 0.6,
+      border: "none",
+      textAlign: "center"
+    }}>
+      © 2026 Henrik Oldehed  ✦  <Link to="/about">Om</Link>
+    </div>
 
-<Footer />
-</div>
+  </div>
 );
-}
-
-export default function App() {
-  return (
-    <>
-
-      <Routes>
-        <Route path="/" element={<MainApp />} />
-        <Route path="/about" element={<About />} />
-        <Route path="*" element={<MainApp />} />
-      </Routes>
-    </>
-  )
 }
