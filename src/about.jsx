@@ -68,17 +68,6 @@ export default function About() {
   </a>
 </p>
 
-<p>
-  <a
-    href="mailto:henrik.oldehed@gmail.com"
-    style={{
-      textDecoration: "none"
-    }}
-  >
-    henrik.oldehed@gmail.com
-  </a>
-</p>
-
   </div>
 </div>
 
