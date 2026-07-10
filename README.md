@@ -18,8 +18,10 @@ Traditionella att‑göra‑listor fokuserar på mängden uppgifter. Leveransome
 
 ## 📸 Förhandsvisning
 
+<p align="center">
+  <img src="./screenshots/leveransometer-demo.gif" alt="Leveransometer UI">
+</p>
 
-![Leveransometer UI](./screenshots/leveransometer-demo.gif)
 
 ## 🧩 Core Concepts (Domänmodell)
 
