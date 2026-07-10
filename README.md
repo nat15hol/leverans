@@ -127,8 +127,7 @@ Har du hittat en bugg eller har ett förbättringsförslag? Skapa gärna ett Git
 
 ## 👨‍💻 Utvecklare
 
-**Henrik Oldehed** 
-
+**Henrik Oldehed**
 Utvecklad med fokus på enkelhet, tydlig informationsdesign och ett nytt sätt att tänka kring produktivitet.
 
 🐙 [GitHub](https://github.com/nat15hol)  
