@@ -1,45 +1,42 @@
 ## 🚀 Leveransometer
-Det viktiga är inte hur mycket du bär, utan vad du faktiskt levererar.
+*Det viktiga är inte hur mycket du bär, utan vad du faktiskt levererar.*
 
-Leveransometer är en produktivitetsapp som hjälper dig att fokusera på framsteg. Istället för att bara checka av uppgifter visualiserar appen balansen mellan din last (det du bär på) och dina leveranser (det du faktiskt genomför). Resultatet är ett tydligare, mer motiverande sätt att se din produktivitet.
+**Leveransometer** är en produktivitetsapp som hjälper dig att fokusera på framsteg. Istället för att bara checka av uppgifter visualiserar appen balansen mellan din last (det du bär på) och dina leveranser (det du faktiskt genomför). Resultatet är ett tydligare, mer motiverande sätt att se din produktivitet.
 
 Appen är utvecklad med fokus på enkelhet, tydlig informationsdesign och ett nytt sätt att tänka kring produktivitet.
 
 ## 💡 Varför Leveransometer?
 Traditionella att‑göra‑listor fokuserar på mängden uppgifter. Leveransometer fokuserar på värdet du skapar.
 
-Flytta fokus från belastning → till leverans
+- Flytta fokus från belastning → till leverans
 
-Se dina framsteg visualiserade i realtid
+- Se dina framsteg visualiserade i realtid
 
-Få en mer motiverande och balanserad bild av din produktivitet
+- Få en mer motiverande och balanserad bild av din produktivitet
 
-Arbeta med ett minimalistiskt, tydligt gränssnitt
+- Arbeta med ett minimalistiskt, tydligt gränssnitt
 
-📸 Förhandsvisning
-Exempel:
+## 📸 Förhandsvisning
 
 
 ![Leveransometer UI](./screenshots/leveransometer-demo.gif)
 
 ## 🧩 Core Concepts (Domänmodell)
-**Last**
 
+**Last**
 Uppgifter du bär på — det som ligger i din pipeline.
 
 **Leveranser** 
-
 Uppgifter du slutför — det som faktiskt skapar värde.
 
 **Balansvisualisering** 
-
 En grafisk representation av relationen mellan last och leveranser. Det är appens kärna.
 
 ## ✨ Funktioner
 
-* Skapa och hantera uppgifter
-* Markera genomförda leveranser
-* Visualisering av balans mellan last och leverans
+* Skapa och hantera **uppgifter**
+* Markera genomförda **leveranser**
+* Visualisering av balans mellan **last och leverans**
 * Omedelbar överblick av framsteg
 * Responsiv design
 * Modern komponentbaserad React‑arkitektur
@@ -59,8 +56,7 @@ Applikationen är uppbyggd med en modulär komponentstruktur där varje del har 
 
 Exempel på beroendeflöde:
 
-Code
-```
+```text
 main.jsx
    │
    ▼
@@ -79,15 +75,14 @@ Diagrammet är genererat med Graphviz och visar relationen mellan projektets kom
 
 ## 🧰 Förutsättningar
 
-Node.js
-
-npm
+- **Node.js**
+- **npm**
 
 ## 🚀 Kom igång lokalt
 
 **Klona repot:**
 
-bash
+```bash
 git clone https://github.com/nat15hol/leverans.git
 
 cd leverans
@@ -126,6 +121,7 @@ Har du hittat en bugg eller har ett förbättringsförslag? Skapa gärna ett Git
 ## 👨‍💻 Utvecklare
 
 **Henrik Oldehed** 
+
 Utvecklad med fokus på enkelhet, tydlig informationsdesign och ett nytt sätt att tänka kring produktivitet.
 
 🐙 [GitHub](https://github.com/nat15hol)  
