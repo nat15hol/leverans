@@ -84,19 +84,16 @@ Diagrammet är genererat med Graphviz och visar relationen mellan projektets kom
 
 ```bash
 git clone https://github.com/nat15hol/leverans.git
-
 cd leverans
 
 **Installera beroenden:**
 
-bash
-
+```bash
 npm install
 
 **Starta utvecklingsservern:**
 
-bash
-
+```bash
 npm run dev
 
 Applikationen körs sedan lokalt via adressen som visas i terminalen.
@@ -105,8 +102,9 @@ Applikationen körs sedan lokalt via adressen som visas i terminalen.
 
 Projektet är konfigurerat för publicering via GitHub Pages.
 
-bash
+```bash
 npm run deploy
+
 Live-version:
 https://nat15hol.github.io/leverans/
 
