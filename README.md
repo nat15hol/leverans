@@ -85,20 +85,20 @@ npm
 
 ## 🚀 Kom igång lokalt
 
-Klona repot:
+**Klona repot:**
 
 bash
 git clone https://github.com/nat15hol/leverans.git
 
 cd leverans
 
-Installera beroenden:
+**Installera beroenden:**
 
 bash
 
 npm install
 
-Starta utvecklingsservern:
+**Starta utvecklingsservern:**
 
 bash
 
