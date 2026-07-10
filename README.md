@@ -98,6 +98,5 @@ Diagrammet är genererat med Graphviz och visar relationen mellan projektets kom
 
 **Henrik Oldehed**
 
-🌍 Portfolio
-🐙 GitHub
-💼 LinkedIn
+🐙 [GitHub](https://github.com/nat15hol)  
+💼 [LinkedIn](https://www.linkedin.com/in/henrikoldehed/)
