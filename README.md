@@ -18,6 +18,8 @@ Arbeta med ett minimalistiskt, tydligt gränssnitt
 
 📸 Förhandsvisning
 Exempel:
+
+
 ![Leveransometer UI](./screenshots/leveransometer-demo.gif)
 
 ## 🧩 Core Concepts (Domänmodell)
