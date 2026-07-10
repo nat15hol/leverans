@@ -23,13 +23,13 @@ Exempel:
 ![Leveransometer UI](./screenshots/leveransometer-demo.gif)
 
 ## 🧩 Core Concepts (Domänmodell)
-Last  
+**Last**
 Uppgifter du bär på — det som ligger i din pipeline.
 
-Leveranser  
+**Leveranser** 
 Uppgifter du slutför — det som faktiskt skapar värde.
 
-Balansvisualisering  
+**Balansvisualisering** 
 En grafisk representation av relationen mellan last och leveranser. Det är appens kärna.
 
 ## ✨ Funktioner
@@ -77,6 +77,7 @@ Diagrammet är genererat med Graphviz och visar relationen mellan projektets kom
 ## 🧰 Förutsättningar
 
 Node.js
+
 npm
 
 ## 🚀 Kom igång lokalt
