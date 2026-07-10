@@ -24,12 +24,15 @@ Exempel:
 
 ## 🧩 Core Concepts (Domänmodell)
 **Last**
+
 Uppgifter du bär på — det som ligger i din pipeline.
 
 **Leveranser** 
+
 Uppgifter du slutför — det som faktiskt skapar värde.
 
 **Balansvisualisering** 
+
 En grafisk representation av relationen mellan last och leveranser. Det är appens kärna.
 
 ## ✨ Funktioner
