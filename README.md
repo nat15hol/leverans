@@ -71,7 +71,10 @@ App.jsx
 
 Ett mer detaljerat arkitekturdiagram finns här:
 
-![Projektets arkitektur](./diagram.svg)
+
+<p align="center">
+  <img src="./diagram.svg" alt="Projektets arkitektur">
+</p>
 
 Diagrammet är genererat med Graphviz och visar relationen mellan projektets komponenter.
 
